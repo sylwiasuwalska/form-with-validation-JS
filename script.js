@@ -103,7 +103,7 @@ allFields.forEach((item) => {
     console.log(validateForm(errors));
   });
 });
-
+;
 const validateForm = (errors) => {
   let valid = true;
   Object.values(errors).forEach(
@@ -114,5 +114,11 @@ const validateForm = (errors) => {
 
 const handleSubmit = (event) => {
   event.preventDefault();
-
+  if (valid) {
+    const spanSubmit = document.querySelector(`#submitted`);
+    spanSubmit.textContent = "Submitted!";
+  }
 };
+
+const submitButton = document.querySelector("#form-submit");
+submitButton.addEventListener("click", handleSubmit);
