@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form with validation</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:400i"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body>
+    <!--text, number, email, password, textarea, select, radio, checkbox i reset.-->
+    <h2>Form</h2>
+    <form novalidate>
+      <div class="wrapper">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+        <span id="name-error" class="error"></span>
+      </div>
+      <div class="wrapper">
+        <label for="number">Number:</label>
+        <input type="number" id="number" name="number" />
+        <span id="number-error" class="error"></span>
+      </div>
+      <div class="wrapper">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" />
+        <span id="email-error" class="error"></span>
+      </div>
+      <div class="wrapper">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+        <span id="password-error" class="error"></span>
+      </div>
+      <div class="wrapper">
+        <label for="text">Information:</label>
+        <textarea id="text" name="text" cols="30" rows="5"></textarea>
+        <span id="text-error" class="error"></span>
+      </div>
+      <div class="wrapper">
+        <label for="select">Choose an option:</label>
+        <select name="options" id="select">
+          <option value="option1">Option1</option>
+          <option value="option2">Option2</option>
+          <option value="option3">Option3</option>
+        </select>
+        <span id="select-error" class="error"></span>
+      </div>
+
+      <div class="wrapper">
+        <label for="select">Choose a case:</label>
+        <div class="inside-wrapper">
+          <input type="radio" id="case1" name="radioBoxOption" value="case1" />
+          <label for="case1">Case 1</label>
+        </div>
+        <div class="inside-wrapper">
+          <input type="radio" id="case2" name="radioBoxOption" value="case2" />
+          <label for="case2">Case 2</label>
+        </div>
+        <div class="inside-wrapper">
+          <input type="radio" id="case3" name="radioBoxOption" value="case3" />
+          <label for="case3">Case 3</label>
+        </div>
+        <span id="radioBoxOption-error" class="error"></span>
+      </div>
+
+      <div class="">
+        <input type="checkbox" id="checkBoxOption" name="checkBoxOption" />
+        <label for="checkBoxOption">Confirm data</label>
+        <span id="checkBoxOption-error" class="error"></span>
+      </div>
+
+      <div class="wrapper">
+        <input
+          class="btn"
+          id="form-reset"
+          type="reset"
+          value="Reset"
+          name="reset"
+        />
+
+        <input
+          class="btn"
+          id="form-submit"
+          type="submit"
+          value="Submit"
+          name="submit"
+        />
+      </div>
+    </form>
+    <p>Information you submitted:</p>
+    <div id="submitted-info"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

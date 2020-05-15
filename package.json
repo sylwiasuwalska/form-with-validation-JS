@@ -1,0 +1,21 @@
+{
+  "name": "form-with-validation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watcher:sass": "sass --watch input.scss output.css",
+    "watcher:browser": "browser-sync start --server --files \"*.css\"",
+    "start": "npm-run-all --parallel watcher:*"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.26.7"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5"
+  }
+}

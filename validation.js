@@ -1,0 +1,10 @@
+const nameInput
+const numberInput
+const emailInput
+const passwordInput
+const infoInput
+const selectInput
+const radioInput
+const confirmInput
+const resetButton
+const submitButton
