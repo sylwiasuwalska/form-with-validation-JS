@@ -14,11 +14,15 @@ label {
   width: 200px;
 }
 
-select, textarea {
+select,
+textarea {
   width: 250px;
 }
 
-input, select, label, textarea {
+input,
+select,
+label,
+textarea {
   margin: 8px;
   padding: 4px;
 }
@@ -30,8 +34,8 @@ label {
 span {
   margin: 10px 8px;
   color: #dc3545;
-  width: 200px;
-  border: 1px solid red;
+  width: 500px;
+  font-size: 0.9rem;
 }
 
 .wrapper {
