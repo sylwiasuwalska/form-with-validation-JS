@@ -44,7 +44,7 @@ const allTextAreas = document.querySelectorAll("textarea");
 const allFields = [...allInputs, ...allSelects, ...allTextAreas];
 
 let state = {
-  valid: true,
+  valid: false,
 };
 
 const initialErrors = {
@@ -103,8 +103,7 @@ allFields.forEach((item) => {
     spanError.classList.add("fade");
     spanError.textContent = errors[name];
     console.log(errors);
-    let newState = validateForm(errors);
-    state.valid = newState;
+    state.valid = validateForm(errors);
     console.log(state.valid);
   });
 });
@@ -117,11 +116,16 @@ const validateForm = (errors) => {
   return valid;
 };
 
+const spanSubmit = document.querySelector(`#submit-status`);
+
 const handleSubmit = (event) => {
   event.preventDefault();
-  if (validateForm.data.valid) {
-    const spanSubmit = document.querySelector(`#submitted`);
+  if (state.valid) {
+    spanSubmit.classList.add("success");
     spanSubmit.textContent = "Submitted!";
+  } else {
+    spanSubmit.classList.add("error");
+    spanSubmit.textContent = "Check your data.";
   }
 };
 
