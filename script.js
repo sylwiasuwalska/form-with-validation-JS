@@ -33,7 +33,7 @@
 // submitButton.addEventListener("click", logSubmit);
 
 const validEmailRegex = RegExp(
-    /^(([^<>()[\],;:\s@]+(\.[^<>()[\],;:\s@]+)*)|(.+))@(([^<>()[\],;:\s@]+\.)+[^<>()[\],;:\s@]{2,})$/i
+  /^(([^<>()[\],;:\s@]+(\.[^<>()[\],;:\s@]+)*)|(.+))@(([^<>()[\],;:\s@]+\.)+[^<>()[\],;:\s@]{2,})$/i
 );
 const validPasswordRegex = RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/);
 
@@ -43,80 +43,86 @@ const allTextAreas = document.querySelectorAll("textarea");
 
 const allFields = [...allInputs, ...allSelects, ...allTextAreas];
 
+let state = {
+  valid: true,
+};
+
 const initialErrors = {
-    name: "Please, provide a name.",
-    number: "Number must be 8 characters long.",
-    email: "Please provide a valid e-mail.",
-    password:
-        "Password must be minimum eight characters, at least one letter and one number.",
-    text: "Enter your message.",
-    radioBoxOption: "One of these options is required.",
-    checkboxOption: "This checkbox is required.",
+  name: "Please, provide a name.",
+  number: "Number must be 8 characters long.",
+  email: "Please provide a valid e-mail.",
+  password:
+    "Password must be minimum eight characters, at least one letter and one number.",
+  text: "Enter your message.",
+  radioBoxOption: "One of these options is required.",
+  checkBoxOption: "This checkbox is required.",
 };
 
 allFields.forEach((item) => {
-    item.addEventListener("input", (event) => {
-        const {name, value} = event.target;
-        let errors = initialErrors;
+  item.addEventListener("input", (event) => {
+    const { name, value } = event.target;
+    let errors = initialErrors;
 
-        switch (name) {
-            case "name":
-                errors.name = value.length < 2 ? "Please, provide name." : "";
-                break;
-            case "number":
-                errors.number =
-                    value.length < 8 ? "Number must be 8 characters long." : "";
-                break;
-            case "email":
-                errors.email = validEmailRegex.test(value)
-                    ? ""
-                    : "Please provide a valid e-mail.";
-                break;
-            case "password":
-                errors.password = validPasswordRegex.test(value)
-                    ? ""
-                    : "Password must be minimum eight characters, at least one letter and one number.";
-                break;
-            case "text":
-                errors.text = value.length < 5 ? "Enter your message." : "";
-                break;
-            case "radioBoxOption":
-                errors.radioBoxOption = event.target.checked
-                    ? ""
-                    : "One of these options is required.";
-                break;
-            case "checkBoxOption":
-                errors.checkboxOption = event.target.checked
-                    ? ""
-                    : "This checkbox is required.";
-                break;
-            default:
-                break;
-        }
-        console.log(`#${name}-error`);
-        const spanError = document.querySelector(`#${name}-error`);
-        console.log(errors[name]);
-        spanError.classList.add("fade");
-        spanError.textContent = errors[name];
-        console.log(errors);
-        console.log(validateForm(errors));
-    });
+    switch (name) {
+      case "name":
+        errors.name = value.length < 2 ? "Please, provide name." : "";
+        break;
+      case "number":
+        errors.number =
+          value.length < 8 ? "Number must be 8 characters long." : "";
+        break;
+      case "email":
+        errors.email = validEmailRegex.test(value)
+          ? ""
+          : "Please provide a valid e-mail.";
+        break;
+      case "password":
+        errors.password = validPasswordRegex.test(value)
+          ? ""
+          : "Password must be minimum eight characters, at least one letter and one number.";
+        break;
+      case "text":
+        errors.text = value.length < 5 ? "Enter your message." : "";
+        break;
+      case "radioBoxOption":
+        errors.radioBoxOption = event.target.checked
+          ? ""
+          : "One of these options is required.";
+        break;
+      case "checkBoxOption":
+        errors.checkBoxOption = event.target.checked
+          ? ""
+          : "This checkbox is required.";
+        break;
+      default:
+        break;
+    }
+
+    const spanError = document.querySelector(`#${name}-error`);
+
+    spanError.classList.add("fade");
+    spanError.textContent = errors[name];
+    console.log(errors);
+    let newState = validateForm(errors);
+    state.valid = newState;
+    console.log(state.valid);
+  });
 });
 
 const validateForm = (errors) => {
-    let valid = true;
-    Object.values(errors).forEach(
-        (val) => val.length > 0 && (valid = false) //If expr1 can be converted to true, returns expr2; else, returns expr1.
-    );
-    return valid;
+  let valid = true;
+  Object.values(errors).forEach(
+    (val) => val.length > 0 && (valid = false) //If expr1 can be converted to true, returns expr2; else, returns expr1.
+  );
+  return valid;
 };
 
 const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-        const spanSubmit = document.querySelector(`#submitted`);
-        spanSubmit.textContent = "Submitted!";
-    }
+  event.preventDefault();
+  if (validateForm.data.valid) {
+    const spanSubmit = document.querySelector(`#submitted`);
+    spanSubmit.textContent = "Submitted!";
+  }
 };
 
 const submitButton = document.querySelector("#form-submit");
