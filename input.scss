@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+$danger: #dc3545;
+$success: #218838;
+$radius: 5px;
+
 body {
   margin: 0 auto;
   width: 40%;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
 form {
@@ -23,8 +29,10 @@ input,
 select,
 label,
 textarea {
+  border-width:1px;
   margin: 8px;
   padding: 4px;
+  border-radius: $radius;
 }
 
 label {
@@ -33,17 +41,17 @@ label {
 
 span {
   margin: 10px 8px;
-  color: #dc3545;
+  color: $danger;
   width: 500px;
   font-size: 0.9rem;
 }
 
 .success {
-  color: #008000;
+  color: $success;
 }
 
 .error {
-  color: #dc3545;
+  color: $danger;
 }
 
 .wrapper {
@@ -55,11 +63,7 @@ span {
   padding: 2px;
 }
 
-.btn {
-  display: inline;
-  margin: 16px;
-  flex: none;
-}
+
 
 .fade {
   animation: fadeIn 0.25s ease-in-out;
@@ -72,4 +76,20 @@ span {
   100% {
     opacity: 1;
   }
+}
+
+.btn {
+  border-radius: $radius;
+  cursor: pointer;
+  width: 150px;
+  border: none;
+  color: white;
+}
+
+.btn-success {
+  background-color: $success;
+}
+
+.btn-danger {
+  background-color: $danger;
 }

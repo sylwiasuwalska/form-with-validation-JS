@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 body {
   margin: 0 auto;
   width: 40%;
   box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
 form {
@@ -23,8 +25,10 @@ input,
 select,
 label,
 textarea {
+  border-width: 1px;
   margin: 8px;
   padding: 4px;
+  border-radius: 5px;
 }
 
 label {
@@ -39,7 +43,7 @@ span {
 }
 
 .success {
-  color: #008000;
+  color: #218838;
 }
 
 .error {
@@ -55,12 +59,6 @@ span {
   padding: 2px;
 }
 
-.btn {
-  display: inline;
-  margin: 16px;
-  flex: none;
-}
-
 .fade {
   animation: fadeIn 0.25s ease-in-out;
 }
@@ -72,6 +70,21 @@ span {
   100% {
     opacity: 1;
   }
+}
+.btn {
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  border: none;
+  color: white;
+}
+
+.btn-success {
+  background-color: #218838;
+}
+
+.btn-danger {
+  background-color: #dc3545;
 }
 
 /*# sourceMappingURL=output.css.map */

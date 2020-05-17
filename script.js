@@ -50,7 +50,7 @@ let state = {
 const initialErrors = {
   name: "Please, provide a name.",
   number: "Number must be 8 characters long.",
-  email: "Please provide a valid e-mail.",
+  email: "Please, provide a valid e-mail.",
   password:
     "Password must be minimum eight characters, at least one letter and one number.",
   text: "Enter your message.",
@@ -74,7 +74,7 @@ allFields.forEach((item) => {
       case "email":
         errors.email = validEmailRegex.test(value)
           ? ""
-          : "Please provide a valid e-mail.";
+          : "Please, provide a valid e-mail.";
         break;
       case "password":
         errors.password = validPasswordRegex.test(value)
