@@ -41,8 +41,8 @@ const allInputs = document.querySelectorAll("input");
 const allSelects = document.querySelectorAll("select");
 const allTextAreas = document.querySelectorAll("textarea");
 
-const allFields = [...allInputs, ...allSelects, ...allTextAreas];
-
+const allFields = [...allTextAreas, ...allInputs, ...allSelects] ;
+console.log(allFields)
 let state = {
   valid: false,
 };
@@ -53,7 +53,7 @@ const initialErrors = {
   email: "Please, provide a valid e-mail.",
   password:
     "Password must be minimum eight characters, at least one letter and one number.",
-  text: "Enter your message.",
+  info: "Enter your message.",
   radioBoxOption: "One of these options is required.",
   checkBoxOption: "This checkbox is required.",
 };
@@ -82,7 +82,7 @@ allFields.forEach((item) => {
           : "Password must be minimum eight characters, at least one letter and one number.";
         break;
       case "text":
-        errors.text = value.length < 5 ? "Enter your message." : "";
+        errors.info = value.length < 5 ? "Enter your message." : "";
         break;
       case "radioBoxOption":
         errors.radioBoxOption = event.target.checked
@@ -134,9 +134,8 @@ submitButton.addEventListener("click", handleSubmit);
 
 const handleReset = (event) => {
   allFields.forEach((item) => {
-    const { name, value } = item;
+    const { name } = item;
     const spanError = document.querySelector(`#${name}-error`);
-    console.log(spanError)
     spanError.textContent = ("");
   });
 };

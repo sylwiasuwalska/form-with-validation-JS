@@ -34,9 +34,9 @@
         <span id="password-error" class="error"></span>
       </div>
       <div class="wrapper">
-        <label for="text">Information:</label>
-        <textarea id="text" name="text" cols="30" rows="3"></textarea>
-        <span id="text-error" class="error"></span>
+        <label for="info">Information:</label>
+        <textarea id="info" name="info" cols="30" rows="3"></textarea>
+        <span id="info-error" class="error"></span>
       </div>
       <div class="wrapper">
         <label for="select">Choose an option:</label>
@@ -45,7 +45,7 @@
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>
         </select>
-        <span id="select-error" class="error"></span>
+        <span id="options-error" class="error"></span>
       </div>
 
       <div class="wrapper">
@@ -72,21 +72,21 @@
       </div>
 
       <div class="wrapper buttons-wrapper">
-        <input
+        <button
           class="btn btn-danger"
           id="form-reset"
           type="reset"
           value="Reset"
           name="reset"
-        />
+        >Reset</button>
 
-        <input
+        <button
           class="btn btn-success"
           id="form-submit"
           type="submit"
           value="Submit"
           name="submit"
-        />
+        >Submit</button>
         <p id="submit-status"></p>
       </div>
     </form>
