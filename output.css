@@ -42,12 +42,12 @@ span {
   font-size: 0.9rem;
 }
 
-.success {
-  color: #218838;
-}
-
 .error {
   color: #dc3545;
+}
+
+.success {
+  color: #218838;
 }
 
 .wrapper {
@@ -59,18 +59,6 @@ span {
   padding: 2px;
 }
 
-.fade {
-  animation: fadeIn 0.25s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .buttons-wrapper {
   width: 100%;
   display: flex;
@@ -92,6 +80,19 @@ span {
 
 .btn-danger {
   background-color: #dc3545;
+}
+
+.fade {
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=output.css.map */

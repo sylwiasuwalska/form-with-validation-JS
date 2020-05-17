@@ -41,8 +41,7 @@ const allInputs = document.querySelectorAll("input");
 const allSelects = document.querySelectorAll("select");
 const allTextAreas = document.querySelectorAll("textarea");
 
-const allFields = [...allTextAreas, ...allInputs, ...allSelects] ;
-console.log(allFields)
+const allFields = [...allTextAreas, ...allInputs, ...allSelects];
 let state = {
   valid: false,
 };
@@ -81,7 +80,7 @@ allFields.forEach((item) => {
           ? ""
           : "Password must be minimum eight characters, at least one letter and one number.";
         break;
-      case "text":
+      case "info":
         errors.info = value.length < 5 ? "Enter your message." : "";
         break;
       case "radioBoxOption":
@@ -99,7 +98,7 @@ allFields.forEach((item) => {
     }
 
     const spanError = document.querySelector(`#${name}-error`);
-    console.log(spanError)
+    console.log(spanError);
     spanError.classList.add("fade");
     spanError.textContent = errors[name];
     console.log(errors);
@@ -116,6 +115,17 @@ const validateForm = (errors) => {
   return valid;
 };
 
+//submit
+
+const showErrors = (errorsList) => {
+  Object.keys(errorsList).forEach((key) => {
+    if (errorsList[key].length > 0) {
+      const spanError = document.querySelector(`#${key}-error`);
+      spanError.textContent = errorsList[key];
+    }
+  });
+};
+
 const spanSubmit = document.querySelector(`#submit-status`);
 
 const handleSubmit = (event) => {
@@ -126,17 +136,20 @@ const handleSubmit = (event) => {
   } else {
     spanSubmit.classList.add("error");
     spanSubmit.textContent = "Check your data.";
+    showErrors(initialErrors);
   }
 };
 
 const submitButton = document.querySelector("#form-submit");
 submitButton.addEventListener("click", handleSubmit);
 
+//reset
 const handleReset = (event) => {
+  spanSubmit.textContent = "";
   allFields.forEach((item) => {
     const { name } = item;
     const spanError = document.querySelector(`#${name}-error`);
-    spanError.textContent = ("");
+    spanError.textContent = "";
   });
 };
 

@@ -46,12 +46,12 @@ span {
   font-size: 0.9rem;
 }
 
-.success {
-  color: $success;
-}
-
 .error {
   color: $danger;
+}
+
+.success {
+  color: $success;
 }
 
 .wrapper {
@@ -61,19 +61,6 @@ span {
 .inside-wrapper > label {
   margin: 0;
   padding: 2px;
-}
-
-.fade {
-  animation: fadeIn 0.25s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 .buttons-wrapper {
@@ -98,3 +85,17 @@ span {
 .btn-danger {
   background-color: $danger;
 }
+
+.fade {
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
