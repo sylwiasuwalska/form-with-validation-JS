@@ -54,12 +54,8 @@ span {
   display: inline-flex;
 }
 
-.inside-wrapper > label {
-  margin: 0;
-  padding: 2px;
-}
-
 .buttons-wrapper {
+  margin-top: 1.5rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
