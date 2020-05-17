@@ -71,13 +71,19 @@ span {
     opacity: 1;
   }
 }
+.buttons-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn {
   border-radius: 5px;
   cursor: pointer;
   height: 27px;
   width: 150px;
   border: none;
-  color: white;
+  color: #fff;
 }
 
 .btn-success {
