@@ -7,7 +7,7 @@
 //
 // const radioBoxInput = document.querySelectorAll("radioBoxOption");
 // const checkBoxInput = document.querySelector("#checkBoxOption");
-// const resetButton = document.querySelector("#form-reset");
+
 // const submitButton = document.querySelector("#form-submit");
 //
 // const submittedInformationContainer = document.querySelector("#submitted-info");
@@ -99,7 +99,7 @@ allFields.forEach((item) => {
     }
 
     const spanError = document.querySelector(`#${name}-error`);
-
+    console.log(spanError)
     spanError.classList.add("fade");
     spanError.textContent = errors[name];
     console.log(errors);
@@ -131,3 +131,15 @@ const handleSubmit = (event) => {
 
 const submitButton = document.querySelector("#form-submit");
 submitButton.addEventListener("click", handleSubmit);
+
+const handleReset = (event) => {
+  allFields.forEach((item) => {
+    const { name, value } = item;
+    const spanError = document.querySelector(`#${name}-error`);
+    console.log(spanError)
+    spanError.textContent = ("");
+  });
+};
+
+const resetButton = document.querySelector("#form-reset");
+resetButton.addEventListener("click", handleReset);
