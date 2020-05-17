@@ -74,6 +74,7 @@ span {
 .btn {
   border-radius: 5px;
   cursor: pointer;
+  height: 27px;
   width: 150px;
   border: none;
   color: white;
