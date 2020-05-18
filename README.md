@@ -13,7 +13,7 @@
 Simple form with validation.
 
 ## Live
-To be done.
+https://sylwiasuwalska.github.io/form-with-validation-JS/
 
 ## Technologies
 * Vanilla JS
