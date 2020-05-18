@@ -8,9 +8,6 @@ const allSelects = document.querySelectorAll("select");
 const allTextAreas = document.querySelectorAll("textarea");
 
 const allFields = [...allTextAreas, ...allInputs, ...allSelects];
-let state = {
-  valid: false,
-};
 
 const initialErrors = {
   name: "Please, provide a name.",
@@ -23,10 +20,15 @@ const initialErrors = {
   checkBoxOption: "This checkbox is required.",
 };
 
+const state = {
+  valid: false,
+  errors: Object.assign({},initialErrors)
+};
+
 allFields.forEach((item) => {
   item.addEventListener("input", (event) => {
     const { name, value } = event.target;
-    let errors = initialErrors;
+    let errors = state.errors;
 
     switch (name) {
       case "name":
@@ -88,7 +90,7 @@ const handleSubmit = (event) => {
     spanSubmit.classList.remove("success");
     spanSubmit.classList.add("error");
     spanSubmit.textContent = "Check your data.";
-    showErrors(initialErrors);
+    showErrors(state.errors);
   }
 };
 
@@ -108,6 +110,8 @@ submitButton.addEventListener("click", handleSubmit);
 //reset
 const handleReset = (event) => {
   spanSubmit.textContent = "";
+  state.errors = Object.assign({}, initialErrors);
+  state.valid = false;
   allFields.forEach((item) => {
     const { name } = item;
     const spanError = document.querySelector(`#${name}-error`);
