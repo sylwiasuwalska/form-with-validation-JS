@@ -1,37 +1,3 @@
-// const nameInput = document.querySelector("#name");
-// const numberInput = document.querySelector("#number");
-// const emailInput = document.querySelector("#email");
-// const passwordInput = document.querySelector("#password");
-// const textInput = document.querySelector("#text");
-// const selectInput = document.querySelector("#select");
-//
-// const radioBoxInput = document.querySelectorAll("radioBoxOption");
-// const checkBoxInput = document.querySelector("#checkBoxOption");
-
-// const submitButton = document.querySelector("#form-submit");
-//
-// const submittedInformationContainer = document.querySelector("#submitted-info");
-// const logSubmit = () => {
-//   const checkedRadioInput = document.querySelector(
-//     "input[name=option]:checked"
-//   );
-//   event.preventDefault();
-//
-//   submittedInformationContainer.innerHTML = `
-// <p> Name: ${nameInput.value}  </p>
-// <p> Number: ${numberInput.value}  </p>
-// <p> Email: ${emailInput.value}  </p>
-// <p> Password: ${passwordInput.value}  </p>
-// <p> Info: ${textInput.value} </p>
-// <p> Select: ${selectInput.value} </p>
-// <p> Radio: ${radioBoxInput.checked} </p>
-// <p> Check: ${checkBoxInput.checked}</p>
-//
-// `;
-// };
-//
-// submitButton.addEventListener("click", logSubmit);
-
 const validEmailRegex = RegExp(
   /^(([^<>()[\],;:\s@]+(\.[^<>()[\],;:\s@]+)*)|(.+))@(([^<>()[\],;:\s@]+\.)+[^<>()[\],;:\s@]{2,})$/i
 );
@@ -98,24 +64,33 @@ allFields.forEach((item) => {
     }
 
     const spanError = document.querySelector(`#${name}-error`);
-    console.log(spanError);
     spanError.classList.add("fade");
     spanError.textContent = errors[name];
-    console.log(errors);
     state.valid = validateForm(errors);
-    console.log(state.valid);
   });
 });
 
 const validateForm = (errors) => {
   let valid = true;
-  Object.values(errors).forEach(
-    (val) => val.length > 0 && (valid = false) //If expr1 can be converted to true, returns expr2; else, returns expr1.
-  );
+  Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
   return valid;
 };
 
 //submit
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  if (state.valid) {
+    spanSubmit.classList.remove("error");
+    spanSubmit.classList.add("success");
+    spanSubmit.textContent = "Submitted!";
+  } else {
+    spanSubmit.classList.remove("success");
+    spanSubmit.classList.add("error");
+    spanSubmit.textContent = "Check your data.";
+    showErrors(initialErrors);
+  }
+};
 
 const showErrors = (errorsList) => {
   Object.keys(errorsList).forEach((key) => {
@@ -127,19 +102,6 @@ const showErrors = (errorsList) => {
 };
 
 const spanSubmit = document.querySelector(`#submit-status`);
-
-const handleSubmit = (event) => {
-  event.preventDefault();
-  if (state.valid) {
-    spanSubmit.classList.add("success");
-    spanSubmit.textContent = "Submitted!";
-  } else {
-    spanSubmit.classList.add("error");
-    spanSubmit.textContent = "Check your data.";
-    showErrors(initialErrors);
-  }
-};
-
 const submitButton = document.querySelector("#form-submit");
 submitButton.addEventListener("click", handleSubmit);
 

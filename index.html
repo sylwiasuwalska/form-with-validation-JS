@@ -35,7 +35,7 @@
       </div>
       <div class="wrapper">
         <label for="info">Information:</label>
-        <textarea id="info" name="info" cols="30" rows="3"></textarea>
+        <textarea id="info" name="info" cols="30" rows="1"></textarea>
         <span id="info-error" class="error"></span>
       </div>
       <div class="wrapper">
@@ -53,17 +53,16 @@
         <div class="inside-wrapper">
           <input type="radio" id="case1" name="radioBoxOption" value="case1" />
           <label for="case1">Case 1</label>
-        </div>
-        <div class="inside-wrapper">
+
           <input type="radio" id="case2" name="radioBoxOption" value="case2" />
           <label for="case2">Case 2</label>
-        </div>
-        <div class="inside-wrapper">
+
           <input type="radio" id="case3" name="radioBoxOption" value="case3" />
           <label for="case3">Case 3</label>
+          <span id="radioBoxOption-error" class="error"></span>
         </div>
+
       </div>
-      <span id="radioBoxOption-error" class="error"></span>
 
       <div class="inside-wrapper">
         <input type="checkbox" id="checkBoxOption" name="checkBoxOption" />
@@ -78,16 +77,19 @@
           type="reset"
           value="Reset"
           name="reset"
-        >Reset</button>
-        <p id="submit-status"></p>
+        >
+          Reset
+        </button>
+        <div class="submit-status" id="submit-status"></div>
         <button
           class="btn btn-success"
           id="form-submit"
           type="submit"
           value="Submit"
           name="submit"
-        >Submit</button>
-
+        >
+          Submit
+        </button>
       </div>
     </form>
     <script src="script.js"></script>

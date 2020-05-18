@@ -1,16 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 $danger: #dc3545;
 $success: #218838;
-$radius: 5px;
+$radius: 0;
 
 body {
   margin: 0 auto;
-  width: 40%;
+  width: 50%;
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
 
 form {
+  width: 100%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -18,6 +19,19 @@ form {
 
 label {
   width: 200px;
+}
+
+input,
+textarea,
+select {
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
 }
 
 select,
@@ -42,8 +56,16 @@ label {
 span {
   margin: 10px 8px;
   color: $danger;
-  width: 500px;
-  font-size: 0.9rem;
+  width: 550px;
+  font-size: 0.85rem;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.inside-wrapper {
+  justify-content: flex-start;
 }
 
 .error {
@@ -54,16 +76,11 @@ span {
   color: $success;
 }
 
-.wrapper {
-  display: inline-flex;
-
-}
-
 .buttons-wrapper {
   margin-top: 1.5rem;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .btn {
@@ -83,6 +100,10 @@ span {
   background-color: $danger;
 }
 
+.submit-status {
+  width: 150px;
+}
+
 .fade {
   animation: fadeIn 0.25s ease-in-out;
 }
@@ -95,4 +116,3 @@ span {
     opacity: 1;
   }
 }
-
